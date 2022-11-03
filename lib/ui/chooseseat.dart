@@ -52,12 +52,12 @@ class _ChooseSeatState extends State<ChooseSeat> {
 
   setVisiblitySeat() {
     setState(() {
-      listSeatLeft[0]["isVisible"] = false;// left column index 0
-      listSeatLeft[1]["isVisible"] = false;// left column index 1
-      listSeatLeft[3]["isVisible"] = false;// left column index 0
-      listSeatRight[1]["isVisible"] = false;// left column index 1
-      listSeatRight[2]["isVisible"] = false;// left column index 2
-      listSeatRight[5]["isVisible"] = false;// left column index 5
+      listSeatLeft[0]["isVisible"] = false; // left column index 0
+      listSeatLeft[1]["isVisible"] = false; // left column index 1
+      listSeatLeft[3]["isVisible"] = false; // left column index 0
+      listSeatRight[1]["isVisible"] = false; // right column index 1
+      listSeatRight[2]["isVisible"] = false; // right column index 2
+      listSeatRight[5]["isVisible"] = false; // right column index 5
     });
     //this function to set where's the position of the seat that should be invisible
   }
