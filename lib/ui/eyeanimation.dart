@@ -38,7 +38,9 @@ class _EyeAnimationState extends State<EyeAnimation> {
           isClosedEye = false;
         });
       } //close eye
+    });
 
+    _timer = Timer.periodic(Duration(milliseconds: 200), (Timer t) {
       if ((t.tick % 8) == 0) {
         setState(() {
           posX = Random().nextInt(70).toDouble();
@@ -50,7 +52,6 @@ class _EyeAnimationState extends State<EyeAnimation> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     _timer!.cancel();
     super.dispose();
   }

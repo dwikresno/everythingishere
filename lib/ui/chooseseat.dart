@@ -20,6 +20,9 @@ class _ChooseSeatState extends State<ChooseSeat> {
   @override
   void initState() {
     //l for left, c for center , r for right
+    //first param "listSeatLeft","listSeatCenter","listSeatRight" that similar like object temp that u want to save the data
+    // second param is for like how many seat on every side
+    // third param is for naming value every seat //look line 38
     initSeatValueToList(listSeatLeft, countSeatLeft, "l");
     initSeatValueToList(listSeatCenter, countSeatCenter, "c");
     initSeatValueToList(listSeatRight, countSeatRight, "r");
@@ -29,6 +32,7 @@ class _ChooseSeatState extends State<ChooseSeat> {
 
   initSeatValueToList(List data, count, side) {
     var objectData;
+    //init variable to save your object data
     for (int i = 0; i < count; i++) {
       objectData = {
         "id": side + "${i + 1}",
@@ -37,8 +41,10 @@ class _ChooseSeatState extends State<ChooseSeat> {
         "isSelected": false,
         "isVisible": true,
       };
+      //this format object for every seat has
       setState(() {
         data.add(objectData);
+        //add object to list
       });
     }
     print(data);
@@ -46,13 +52,14 @@ class _ChooseSeatState extends State<ChooseSeat> {
 
   setVisiblitySeat() {
     setState(() {
-      listSeatLeft[0]["isVisible"] = false;
-      listSeatLeft[1]["isVisible"] = false;
-      listSeatLeft[3]["isVisible"] = false;
-      listSeatRight[1]["isVisible"] = false;
-      listSeatRight[2]["isVisible"] = false;
-      listSeatRight[5]["isVisible"] = false;
+      listSeatLeft[0]["isVisible"] = false;// left column index 0
+      listSeatLeft[1]["isVisible"] = false;// left column index 1
+      listSeatLeft[3]["isVisible"] = false;// left column index 0
+      listSeatRight[1]["isVisible"] = false;// left column index 1
+      listSeatRight[2]["isVisible"] = false;// left column index 2
+      listSeatRight[5]["isVisible"] = false;// left column index 5
     });
+    //this function to set where's the position of the seat that should be invisible
   }
 
   setSelectedToBooked() {
@@ -77,6 +84,7 @@ class _ChooseSeatState extends State<ChooseSeat> {
         });
       }
     });
+    //this function to loop every side of seat, from selected to booked, u also can this function to send to u'r serves side
   }
 
   @override
@@ -114,6 +122,7 @@ class _ChooseSeatState extends State<ChooseSeat> {
                             ),
                           ),
                           Container(
+                            margin: EdgeInsets.only(left: 10),
                             child: Text(
                               "Booked",
                             ),
@@ -135,6 +144,7 @@ class _ChooseSeatState extends State<ChooseSeat> {
                             ),
                           ),
                           Container(
+                            margin: EdgeInsets.only(left: 10),
                             child: Text("Selected"),
                           ),
                         ],
@@ -157,6 +167,7 @@ class _ChooseSeatState extends State<ChooseSeat> {
                             ),
                           ),
                           Container(
+                            margin: EdgeInsets.only(left: 10),
                             child: Text("available"),
                           ),
                         ],

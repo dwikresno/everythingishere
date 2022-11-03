@@ -1,6 +1,12 @@
-import 'package:eye/ui/chooseseat.dart';
-import 'package:eye/ui/eyeanimation.dart';
+import 'package:everythingishere/ui/chooseseat.dart';
+import 'package:everythingishere/ui/eyeanimation.dart';
+import 'package:everythingishere/ui/harvestmoon.dart';
+import 'package:everythingishere/ui/piano/piano.dart';
+import 'package:everythingishere/ui/pokemon.dart';
+import 'package:everythingishere/ui/snake.dart';
+import 'package:everythingishere/ui/zelda.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class Menu extends StatefulWidget {
   Menu({Key? key}) : super(key: key);
@@ -12,6 +18,10 @@ class Menu extends StatefulWidget {
 class _MenuState extends State<Menu> {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitDown,
+      DeviceOrientation.portraitUp,
+    ]);
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -33,6 +43,42 @@ class _MenuState extends State<Menu> {
                 movePage(1);
               },
               child: Text("Choose Seat"),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                movePage(2);
+              },
+              child: Text("Snake"),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                movePage(3);
+              },
+              child: Text("Pokemon"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                movePage(4);
+              },
+              child: Text("Piano"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                movePage(5);
+              },
+              child: Text("Zelda"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                movePage(6);
+              },
+              child: Text("HarvestMoon Walk"),
             )
           ],
         ),
@@ -48,6 +94,21 @@ class _MenuState extends State<Menu> {
         break;
       case 1:
         className = ChooseSeat();
+        break;
+      case 2:
+        className = Snake();
+        break;
+      case 3:
+        className = Pokemon();
+        break;
+      case 4:
+        className = Piano();
+        break;
+      case 5:
+        className = ZeldaPage();
+        break;
+      case 6:
+        className = HarvestMoon();
         break;
       default:
         // do something else
