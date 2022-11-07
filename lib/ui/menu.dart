@@ -1,10 +1,11 @@
-import 'package:everythingishere/ui/chooseseat.dart';
-import 'package:everythingishere/ui/eyeanimation.dart';
-import 'package:everythingishere/ui/harvestmoon.dart';
-import 'package:everythingishere/ui/piano/piano.dart';
-import 'package:everythingishere/ui/pokemon.dart';
-import 'package:everythingishere/ui/snake.dart';
-import 'package:everythingishere/ui/zelda.dart';
+import 'package:all_is_here/ui/animation_walk.dart';
+import 'package:all_is_here/ui/chooseseat.dart';
+import 'package:all_is_here/ui/eyeanimation.dart';
+import 'package:all_is_here/ui/harvestmoon.dart';
+import 'package:all_is_here/ui/piano/piano.dart';
+import 'package:all_is_here/ui/pokemon.dart';
+import 'package:all_is_here/ui/snake.dart';
+import 'package:all_is_here/ui/zelda.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -79,6 +80,12 @@ class _MenuState extends State<Menu> {
                 movePage(6);
               },
               child: Text("HarvestMoon Walk"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                movePage(7);
+              },
+              child: Text("Animation Walk"),
             )
           ],
         ),
@@ -110,6 +117,10 @@ class _MenuState extends State<Menu> {
       case 6:
         className = HarvestMoon();
         break;
+      case 7:
+        className = AnimationWalk();
+        break;
+
       default:
         // do something else
         break;

@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.eye">
+    package="com.example.all_is_here">
    <application
-        android:label="everything is here"
+        android:label="all_is_here"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

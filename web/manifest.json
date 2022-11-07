@@ -1,6 +1,6 @@
 {
-    "name": "eye",
-    "short_name": "eye",
+    "name": "all_is_here",
+    "short_name": "all_is_here",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
