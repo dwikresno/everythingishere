@@ -2,7 +2,8 @@ import 'package:all_is_here/ui/animation_walk.dart';
 import 'package:all_is_here/ui/chooseseat.dart';
 import 'package:all_is_here/ui/eyeanimation.dart';
 import 'package:all_is_here/ui/harvestmoon.dart';
-import 'package:all_is_here/ui/piano/piano.dart';
+import 'package:all_is_here/ui/listchecked.dart';
+import 'package:all_is_here/ui/piano.dart';
 import 'package:all_is_here/ui/pokemon.dart';
 import 'package:all_is_here/ui/snake.dart';
 import 'package:all_is_here/ui/zelda.dart';
@@ -24,11 +25,16 @@ class _MenuState extends State<Menu> {
       DeviceOrientation.portraitUp,
     ]);
     return Scaffold(
+      appBar: AppBar(),
       body: Container(
         width: MediaQuery.of(context).size.width,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: GridView(
+          padding: EdgeInsets.all(20),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            mainAxisSpacing: 20,
+            crossAxisSpacing: 20,
+          ),
           children: [
             ElevatedButton(
               onPressed: () {
@@ -36,26 +42,17 @@ class _MenuState extends State<Menu> {
               },
               child: Text("Eye Animation"),
             ),
-            SizedBox(
-              height: 10,
-            ),
             ElevatedButton(
               onPressed: () {
                 movePage(1);
               },
               child: Text("Choose Seat"),
             ),
-            SizedBox(
-              height: 10,
-            ),
             ElevatedButton(
               onPressed: () {
                 movePage(2);
               },
               child: Text("Snake"),
-            ),
-            SizedBox(
-              height: 10,
             ),
             ElevatedButton(
               onPressed: () {
@@ -86,6 +83,12 @@ class _MenuState extends State<Menu> {
                 movePage(7);
               },
               child: Text("Animation Walk"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                movePage(8);
+              },
+              child: Text("List Checked"),
             )
           ],
         ),
@@ -120,7 +123,9 @@ class _MenuState extends State<Menu> {
       case 7:
         className = AnimationWalk();
         break;
-
+      case 8:
+        className = ListChecked();
+        break;
       default:
         // do something else
         break;
@@ -128,6 +133,6 @@ class _MenuState extends State<Menu> {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => className!),
-    );
+    ).then((value) => setState(() {}));
   }
 }

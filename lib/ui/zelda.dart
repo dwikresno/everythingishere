@@ -26,6 +26,12 @@ class _ZeldaPageState extends State<ZeldaPage> {
   }
 
   @override
+  void dispose() {
+    timer!.cancel();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.landscapeLeft,
