@@ -2,6 +2,7 @@ import 'package:all_is_here/ui/animation_walk.dart';
 import 'package:all_is_here/ui/chooseseat.dart';
 import 'package:all_is_here/ui/eyeanimation.dart';
 import 'package:all_is_here/ui/harvestmoon.dart';
+import 'package:all_is_here/ui/hide_post.dart';
 import 'package:all_is_here/ui/listchecked.dart';
 import 'package:all_is_here/ui/piano.dart';
 import 'package:all_is_here/ui/pokemon.dart';
@@ -89,6 +90,12 @@ class _MenuState extends State<Menu> {
                 movePage(8);
               },
               child: Text("List Checked"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                movePage(9);
+              },
+              child: Text("Hide Post"),
             )
           ],
         ),
@@ -125,6 +132,9 @@ class _MenuState extends State<Menu> {
         break;
       case 8:
         className = ListChecked();
+        break;
+      case 9:
+        className = HidePost();
         break;
       default:
         // do something else
