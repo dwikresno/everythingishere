@@ -1,3 +1,4 @@
+import 'package:all_is_here/ui/IG/ig_message.dart';
 import 'package:all_is_here/ui/animation_walk.dart';
 import 'package:all_is_here/ui/chooseseat.dart';
 import 'package:all_is_here/ui/eyeanimation.dart';
@@ -30,6 +31,7 @@ class _MenuState extends State<Menu> {
       body: Container(
         width: MediaQuery.of(context).size.width,
         child: GridView(
+          reverse: true,
           padding: EdgeInsets.all(20),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
@@ -96,6 +98,12 @@ class _MenuState extends State<Menu> {
                 movePage(9);
               },
               child: Text("Hide Post"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                movePage(10);
+              },
+              child: Text("IG Message"),
             )
           ],
         ),
@@ -136,6 +144,10 @@ class _MenuState extends State<Menu> {
       case 9:
         className = HidePost();
         break;
+      case 10:
+        className = IGMessage();
+        break;
+
       default:
         // do something else
         break;
