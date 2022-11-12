@@ -5,6 +5,7 @@ import 'package:all_is_here/ui/eyeanimation.dart';
 import 'package:all_is_here/ui/harvestmoon.dart';
 import 'package:all_is_here/ui/hide_post.dart';
 import 'package:all_is_here/ui/listchecked.dart';
+import 'package:all_is_here/ui/pancake_sort.dart';
 import 'package:all_is_here/ui/piano.dart';
 import 'package:all_is_here/ui/pokemon.dart';
 import 'package:all_is_here/ui/snake.dart';
@@ -104,6 +105,12 @@ class _MenuState extends State<Menu> {
                 movePage(10);
               },
               child: Text("IG Message"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                movePage(11);
+              },
+              child: Text("Pancake Sort"),
             )
           ],
         ),
@@ -147,7 +154,9 @@ class _MenuState extends State<Menu> {
       case 10:
         className = IGMessage();
         break;
-
+      case 11:
+        className = PancakeSort();
+        break;
       default:
         // do something else
         break;
