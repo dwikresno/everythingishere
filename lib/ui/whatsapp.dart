@@ -10,12 +10,20 @@ class Whatsapp extends StatefulWidget {
 class _WhatsappState extends State<Whatsapp> {
   ScrollController _scrollController = ScrollController();
   bool isCollapse = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xff118578),
         elevation: 0,
+        automaticallyImplyLeading: false,
+        title: Text(
+          "WhatsApp",
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
       ),
       body: Column(
         children: [
@@ -263,7 +271,7 @@ class _WhatsappState extends State<Whatsapp> {
                                     ),
                                   ),
                                   title: Text("Name $index"),
-                                  subtitle: Text("text $index"),
+                                  subtitle: Text("Chat $index"),
                                 ),
                                 SizedBox(
                                   height: 15,
