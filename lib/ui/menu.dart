@@ -9,6 +9,7 @@ import 'package:all_is_here/ui/pancake_sort.dart';
 import 'package:all_is_here/ui/piano.dart';
 import 'package:all_is_here/ui/pokemon.dart';
 import 'package:all_is_here/ui/snake.dart';
+import 'package:all_is_here/ui/whatsapp.dart';
 import 'package:all_is_here/ui/zelda.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -111,6 +112,12 @@ class _MenuState extends State<Menu> {
                 movePage(11);
               },
               child: Text("Pancake Sort"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                movePage(12);
+              },
+              child: Text("Whatsapp"),
             )
           ],
         ),
@@ -156,6 +163,9 @@ class _MenuState extends State<Menu> {
         break;
       case 11:
         className = PancakeSort();
+        break;
+      case 12:
+        className = Whatsapp();
         break;
       default:
         // do something else
