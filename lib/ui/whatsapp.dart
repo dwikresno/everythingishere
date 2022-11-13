@@ -44,26 +44,30 @@ class _WhatsappState extends State<Whatsapp> {
                               color: Colors.grey.withOpacity(0.2),
                             ),
                           ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.add_circle_outline_rounded,
-                                size: 30,
-                              ),
-                              Text(
-                                "Create Story",
-                                maxLines: 1,
-                              ),
-                            ],
-                          ),
+                          child: isCollapse
+                              ? SizedBox.shrink()
+                              : Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    Icon(
+                                      Icons.add_circle_outline_rounded,
+                                      size: 30,
+                                    ),
+                                    Text(
+                                      "Create Story",
+                                      maxLines: 1,
+                                    ),
+                                  ],
+                                ),
                         ),
                         Align(
                           alignment: Alignment.bottomLeft,
                           child: Container(
                             padding: EdgeInsets.all(2),
-                            margin: EdgeInsets.only(right: 10),
+                            margin: EdgeInsets.all(isCollapse ? 0 : 10),
                             width: 60,
                             height: 60,
                             decoration: BoxDecoration(
