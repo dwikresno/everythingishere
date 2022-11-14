@@ -41,6 +41,7 @@ dependencies:
   flutter_joystick: ^0.0.2
   unicons: ^2.1.0
   intl: ^0.17.0
+  sliding_up_panel: ^2.0.0+1
 
 dev_dependencies:
   flutter_test:
@@ -70,6 +71,7 @@ flutter:
     - assets/pokemon/audio/sound_back.wav
     - assets/harvestmoon/
     - assets/animation/
+    - assets/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
