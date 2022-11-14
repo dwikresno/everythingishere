@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:all_is_here/ui/IG/ig_message.dart';
 import 'package:all_is_here/ui/animation_walk.dart';
 import 'package:all_is_here/ui/chooseseat.dart';
 import 'package:all_is_here/ui/eyeanimation.dart';
+import 'package:all_is_here/ui/gojek.dart';
 import 'package:all_is_here/ui/harvestmoon.dart';
 import 'package:all_is_here/ui/hide_post.dart';
 import 'package:all_is_here/ui/listchecked.dart';
@@ -22,6 +25,15 @@ class Menu extends StatefulWidget {
 }
 
 class _MenuState extends State<Menu> {
+  ScrollController scrollController = ScrollController();
+  @override
+  void initState() {
+    Timer(Duration(milliseconds: 200), () {
+      scrollController.jumpTo(scrollController.position.maxScrollExtent);
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
@@ -33,6 +45,7 @@ class _MenuState extends State<Menu> {
       body: Container(
         width: MediaQuery.of(context).size.width,
         child: GridView(
+          controller: scrollController,
           reverse: true,
           padding: EdgeInsets.all(20),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -118,6 +131,12 @@ class _MenuState extends State<Menu> {
                 movePage(12);
               },
               child: Text("Whatsapp"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                movePage(13);
+              },
+              child: Text("Gojek Slide Panel"),
             )
           ],
         ),
@@ -166,6 +185,9 @@ class _MenuState extends State<Menu> {
         break;
       case 12:
         className = Whatsapp();
+        break;
+      case 13:
+        className = Gojek();
         break;
       default:
         // do something else

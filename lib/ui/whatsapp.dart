@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class Whatsapp extends StatefulWidget {
@@ -219,15 +221,19 @@ class _WhatsappState extends State<Whatsapp> {
                           if (t is ScrollEndNotification) {
                             print(_scrollController.position.pixels);
                             if (_scrollController.position.pixels > 30) {
-                              if (mounted)
-                                setState(() {
-                                  isCollapse = true;
-                                });
+                              Timer(Duration(milliseconds: 100), () {
+                                if (mounted)
+                                  setState(() {
+                                    isCollapse = true;
+                                  });
+                              });
                             } else {
-                              if (mounted)
-                                setState(() {
-                                  isCollapse = false;
-                                });
+                              Timer(Duration(milliseconds: 100), () {
+                                if (mounted)
+                                  setState(() {
+                                    isCollapse = false;
+                                  });
+                              });
                             }
                           }
                           return true;
