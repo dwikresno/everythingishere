@@ -12,6 +12,7 @@ import 'package:all_is_here/ui/pancake_sort.dart';
 import 'package:all_is_here/ui/piano.dart';
 import 'package:all_is_here/ui/pokemon.dart';
 import 'package:all_is_here/ui/snake.dart';
+import 'package:all_is_here/ui/tokopedia.dart';
 import 'package:all_is_here/ui/whatsapp.dart';
 import 'package:all_is_here/ui/zelda.dart';
 import 'package:flutter/material.dart';
@@ -137,6 +138,12 @@ class _MenuState extends State<Menu> {
                 movePage(13);
               },
               child: Text("Gojek Slide Panel"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                movePage(14);
+              },
+              child: Text("Tokopedia"),
             )
           ],
         ),
@@ -188,6 +195,9 @@ class _MenuState extends State<Menu> {
         break;
       case 13:
         className = Gojek();
+        break;
+      case 14:
+        className = Tokopedia();
         break;
       default:
         // do something else
