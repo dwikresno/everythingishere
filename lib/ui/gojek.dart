@@ -78,6 +78,9 @@ class _GojekState extends State<Gojek> {
           ),
           Column(
             children: [
+              SizedBox(
+                height: 20,
+              ),
               Container(
                 margin: EdgeInsets.symmetric(
                   vertical: 20,
