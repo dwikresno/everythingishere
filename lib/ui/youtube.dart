@@ -35,7 +35,7 @@ class _YoutubeState extends State<Youtube> {
           child: ListView.builder(
             itemCount: 5,
             itemBuilder: (BuildContext context, int index) {
-              return itemList();
+              return itemList(index);
             },
           ),
         ),
@@ -154,7 +154,7 @@ class _YoutubeState extends State<Youtube> {
                             physics: NeverScrollableScrollPhysics(),
                             itemCount: 10,
                             itemBuilder: (BuildContext context, int index) {
-                              return itemList();
+                              return itemList(index);
                             },
                           ),
                         ),
@@ -288,7 +288,7 @@ class _YoutubeState extends State<Youtube> {
     );
   }
 
-  Widget itemList() {
+  Widget itemList(index) {
     return GestureDetector(
       onTap: () {
         setState(() {
