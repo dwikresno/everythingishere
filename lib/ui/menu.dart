@@ -14,6 +14,7 @@ import 'package:all_is_here/ui/pokemon.dart';
 import 'package:all_is_here/ui/snake.dart';
 import 'package:all_is_here/ui/tokopedia.dart';
 import 'package:all_is_here/ui/whatsapp.dart';
+import 'package:all_is_here/ui/youtube.dart';
 import 'package:all_is_here/ui/zelda.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -144,6 +145,12 @@ class _MenuState extends State<Menu> {
                 movePage(14);
               },
               child: Text("Tokopedia"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                movePage(15);
+              },
+              child: Text("Youtube"),
             )
           ],
         ),
@@ -198,6 +205,9 @@ class _MenuState extends State<Menu> {
         break;
       case 14:
         className = Tokopedia();
+        break;
+      case 15:
+        className = Youtube();
         break;
       default:
         // do something else
