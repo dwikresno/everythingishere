@@ -35,94 +35,7 @@ class _YoutubeState extends State<Youtube> {
           child: ListView.builder(
             itemCount: 5,
             itemBuilder: (BuildContext context, int index) {
-              return GestureDetector(
-                onTap: () {
-                  setState(() {
-                    isShowPanel = true;
-                    selectedImage =
-                        "https://picsum.photos/800/800?random=$index";
-                  });
-                  panelController.open();
-                },
-                child: Container(
-                  color: Colors.white,
-                  padding: EdgeInsets.symmetric(vertical: 10),
-                  child: Column(
-                    children: [
-                      Container(
-                        height: 220,
-                        width: double.infinity,
-                        color: Colors.green,
-                        child: Image.network(
-                          "https://picsum.photos/800/800?random=$index",
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Container(
-                        margin: EdgeInsets.symmetric(horizontal: 10),
-                        child: Row(
-                          children: [
-                            CircleAvatar(
-                              backgroundImage: NetworkImage(
-                                  "https://dwi-kresno.firebaseapp.com/images/dwik1.jpg"),
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  child: Text(
-                                    "YOUR VIDEO TITLE IS HERE",
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w700,
-                                    ),
-                                  ),
-                                ),
-                                Row(
-                                  children: [
-                                    Container(
-                                      decoration: BoxDecoration(),
-                                      child: Text(
-                                        "D'Code",
-                                        style: TextStyle(
-                                          fontSize: 12,
-                                          color: Colors.grey,
-                                          fontWeight: FontWeight.w700,
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    Container(
-                                      decoration: BoxDecoration(),
-                                      child: Text(
-                                        "4M views",
-                                        style: TextStyle(
-                                          fontSize: 12,
-                                          color: Colors.grey,
-                                          fontWeight: FontWeight.w700,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              );
+              return itemList();
             },
           ),
         ),
@@ -241,101 +154,7 @@ class _YoutubeState extends State<Youtube> {
                             physics: NeverScrollableScrollPhysics(),
                             itemCount: 10,
                             itemBuilder: (BuildContext context, int index) {
-                              return GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    isShowPanel = true;
-                                    selectedImage =
-                                        "https://picsum.photos/800/800?random=$index";
-                                  });
-                                  panelController.open();
-                                },
-                                child: Container(
-                                  color: Colors.white,
-                                  padding: EdgeInsets.symmetric(vertical: 10),
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        height: 220,
-                                        width: double.infinity,
-                                        color: Colors.green,
-                                        child: Image.network(
-                                          "https://picsum.photos/800/800?random=$index",
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 5,
-                                      ),
-                                      Container(
-                                        margin: EdgeInsets.symmetric(
-                                            horizontal: 10),
-                                        child: Row(
-                                          children: [
-                                            CircleAvatar(
-                                              backgroundImage: NetworkImage(
-                                                  "https://dwi-kresno.firebaseapp.com/images/dwik1.jpg"),
-                                            ),
-                                            SizedBox(
-                                              width: 5,
-                                            ),
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Container(
-                                                  child: Text(
-                                                    "YOUR VIDEO TITLE IS HERE",
-                                                    style: TextStyle(
-                                                      fontSize: 16,
-                                                      color: Colors.black,
-                                                      fontWeight:
-                                                          FontWeight.w700,
-                                                    ),
-                                                  ),
-                                                ),
-                                                Row(
-                                                  children: [
-                                                    Container(
-                                                      decoration:
-                                                          BoxDecoration(),
-                                                      child: Text(
-                                                        "D'Code",
-                                                        style: TextStyle(
-                                                          fontSize: 12,
-                                                          color: Colors.grey,
-                                                          fontWeight:
-                                                              FontWeight.w700,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    SizedBox(
-                                                      width: 5,
-                                                    ),
-                                                    Container(
-                                                      decoration:
-                                                          BoxDecoration(),
-                                                      child: Text(
-                                                        "4M views",
-                                                        style: TextStyle(
-                                                          fontSize: 12,
-                                                          color: Colors.grey,
-                                                          fontWeight:
-                                                              FontWeight.w700,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              );
+                              return itemList();
                             },
                           ),
                         ),
@@ -461,6 +280,96 @@ class _YoutubeState extends State<Youtube> {
                   unselectedItemColor: Colors.grey,
                   // onTap: _onItemTapped,
                 ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget itemList() {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          isShowPanel = true;
+          selectedImage = "https://picsum.photos/800/800?random=$index";
+        });
+        panelController.open();
+      },
+      child: Container(
+        color: Colors.white,
+        padding: EdgeInsets.symmetric(vertical: 10),
+        child: Column(
+          children: [
+            Container(
+              height: 220,
+              width: double.infinity,
+              color: Colors.green,
+              child: Image.network(
+                "https://picsum.photos/800/800?random=$index",
+                fit: BoxFit.cover,
+              ),
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 10),
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    backgroundImage: NetworkImage(
+                        "https://dwi-kresno.firebaseapp.com/images/dwik1.jpg"),
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        child: Text(
+                          "YOUR VIDEO TITLE IS HERE",
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(),
+                            child: Text(
+                              "D'Code",
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.grey,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(),
+                            child: Text(
+                              "4M views",
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.grey,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
           ],
