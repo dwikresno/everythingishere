@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:all_is_here/ui/IG/ig_message.dart';
 import 'package:all_is_here/ui/animation_walk.dart';
 import 'package:all_is_here/ui/chooseseat.dart';
+import 'package:all_is_here/ui/custom_navbar.dart';
 import 'package:all_is_here/ui/eyeanimation.dart';
 import 'package:all_is_here/ui/gojek.dart';
 import 'package:all_is_here/ui/harvestmoon.dart';
@@ -151,6 +152,12 @@ class _MenuState extends State<Menu> {
                 movePage(15);
               },
               child: Text("Youtube"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                movePage(16);
+              },
+              child: Text("Custom Navbar"),
             )
           ],
         ),
@@ -208,6 +215,9 @@ class _MenuState extends State<Menu> {
         break;
       case 15:
         className = Youtube();
+        break;
+      case 16:
+        className = CustomNavbar();
         break;
       default:
         // do something else
