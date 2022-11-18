@@ -218,10 +218,10 @@ class _SelectedVariantState extends State<SelectedVariant> {
                         ),
                         child: Center(
                           child: Text(
-                            "Beli Langsung",
+                            "Ingatkan Saya",
                             style: TextStyle(
                               fontSize: 14,
-                              fontWeight: FontWeight.w600,
+                              fontWeight: FontWeight.w700,
                               color: Color(0xff00AA5B),
                             ),
                           ),
@@ -244,7 +244,7 @@ class _SelectedVariantState extends State<SelectedVariant> {
                                   "Beli Langsung",
                                   style: TextStyle(
                                     fontSize: 14,
-                                    fontWeight: FontWeight.w600,
+                                    fontWeight: FontWeight.w700,
                                     color: Color(0xff00AA5B),
                                   ),
                                 ),
@@ -264,7 +264,7 @@ class _SelectedVariantState extends State<SelectedVariant> {
                                   "+ Keranjang",
                                   style: TextStyle(
                                     fontSize: 14,
-                                    fontWeight: FontWeight.w600,
+                                    fontWeight: FontWeight.w700,
                                     color: Colors.white,
                                   ),
                                 ),
