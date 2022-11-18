@@ -12,6 +12,7 @@ import 'package:all_is_here/ui/listchecked.dart';
 import 'package:all_is_here/ui/pancake_sort.dart';
 import 'package:all_is_here/ui/piano.dart';
 import 'package:all_is_here/ui/pokemon.dart';
+import 'package:all_is_here/ui/selected_variant.dart';
 import 'package:all_is_here/ui/snake.dart';
 import 'package:all_is_here/ui/tokopedia.dart';
 import 'package:all_is_here/ui/whatsapp.dart';
@@ -158,6 +159,12 @@ class _MenuState extends State<Menu> {
                 movePage(16);
               },
               child: Text("Custom Navbar"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                movePage(17);
+              },
+              child: Text("Selected Varian"),
             )
           ],
         ),
@@ -218,6 +225,9 @@ class _MenuState extends State<Menu> {
         break;
       case 16:
         className = CustomNavbar();
+        break;
+      case 17:
+        className = SelectedVariant();
         break;
       default:
         // do something else
