@@ -14,6 +14,7 @@ import 'package:all_is_here/ui/piano.dart';
 import 'package:all_is_here/ui/pokemon.dart';
 import 'package:all_is_here/ui/selected_variant.dart';
 import 'package:all_is_here/ui/snake.dart';
+import 'package:all_is_here/ui/tiktok_like.dart';
 import 'package:all_is_here/ui/tokopedia.dart';
 import 'package:all_is_here/ui/whatsapp.dart';
 import 'package:all_is_here/ui/youtube.dart';
@@ -164,7 +165,13 @@ class _MenuState extends State<Menu> {
               onPressed: () {
                 movePage(17);
               },
-              child: Text("Selected Varian"),
+              child: Text("Select Varian"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                movePage(18);
+              },
+              child: Text("Tiktok Like"),
             )
           ],
         ),
@@ -228,6 +235,9 @@ class _MenuState extends State<Menu> {
         break;
       case 17:
         className = SelectedVariant();
+        break;
+      case 18:
+        className = TiktokLike();
         break;
       default:
         // do something else
