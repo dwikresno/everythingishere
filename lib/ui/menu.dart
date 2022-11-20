@@ -5,6 +5,7 @@ import 'package:all_is_here/ui/animation_walk.dart';
 import 'package:all_is_here/ui/chooseseat.dart';
 import 'package:all_is_here/ui/custom_navbar.dart';
 import 'package:all_is_here/ui/eyeanimation.dart';
+import 'package:all_is_here/ui/facebook.dart';
 import 'package:all_is_here/ui/gojek.dart';
 import 'package:all_is_here/ui/harvestmoon.dart';
 import 'package:all_is_here/ui/hide_post.dart';
@@ -31,6 +32,30 @@ class Menu extends StatefulWidget {
 
 class _MenuState extends State<Menu> {
   ScrollController scrollController = ScrollController();
+  List listFeature = [
+    "Eye Animation",
+    "Choose Seat",
+    "Snake",
+    "Pokemon",
+    "Piano",
+    "Zelda",
+    "HarvestMoon Walk",
+    "Animation Walk",
+    "List Checked",
+    "Hide Post",
+    "IG Message",
+    "Pancake Sort",
+    "Whatsapp",
+    "Gojek Slide Panel",
+    "Tokopedia",
+    "Youtube",
+    "Custom Navbar",
+    "Select Varian Tokopedia",
+    "Tiktok Like",
+    "Facebook",
+  ];
+  TextEditingController searchController = TextEditingController();
+
   @override
   void initState() {
     Timer(Duration(milliseconds: 200), () {
@@ -46,133 +71,59 @@ class _MenuState extends State<Menu> {
       DeviceOrientation.portraitUp,
     ]);
     return Scaffold(
-      appBar: AppBar(),
+      // appBar: AppBar(),
       body: Container(
         width: MediaQuery.of(context).size.width,
-        child: GridView(
-          controller: scrollController,
-          reverse: true,
-          padding: EdgeInsets.all(20),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            mainAxisSpacing: 20,
-            crossAxisSpacing: 20,
-          ),
+        padding: EdgeInsets.all(20),
+        child: Column(
           children: [
-            ElevatedButton(
-              onPressed: () {
-                movePage(0);
+            TextFormField(
+              textInputAction: TextInputAction.search,
+              controller: searchController,
+              decoration: InputDecoration(
+                hintText: "Search Name",
+              ),
+              onEditingComplete: () {
+                setState(() {});
               },
-              child: Text("Eye Animation"),
+              onChanged: (value) {
+                setState(() {});
+              },
             ),
-            ElevatedButton(
-              onPressed: () {
-                movePage(1);
-              },
-              child: Text("Choose Seat"),
+            Expanded(
+              child: GridView.builder(
+                shrinkWrap: true,
+                controller: scrollController,
+                // reverse: true,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 20,
+                  crossAxisSpacing: 20,
+                ),
+                itemCount: listFeature
+                    .where((element) => element
+                        .toString()
+                        .toLowerCase()
+                        .contains(searchController.text.toLowerCase()))
+                    .length,
+                itemBuilder: (context, index) {
+                  return ElevatedButton(
+                    onPressed: () {
+                      movePage(index);
+                    },
+                    child: Text(
+                      listFeature
+                          .where((element) => element
+                              .toString()
+                              .toLowerCase()
+                              .contains(searchController.text.toLowerCase()))
+                          .elementAt(index),
+                      textAlign: TextAlign.center,
+                    ),
+                  );
+                },
+              ),
             ),
-            ElevatedButton(
-              onPressed: () {
-                movePage(2);
-              },
-              child: Text("Snake"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                movePage(3);
-              },
-              child: Text("Pokemon"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                movePage(4);
-              },
-              child: Text("Piano"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                movePage(5);
-              },
-              child: Text("Zelda"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                movePage(6);
-              },
-              child: Text("HarvestMoon Walk"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                movePage(7);
-              },
-              child: Text("Animation Walk"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                movePage(8);
-              },
-              child: Text("List Checked"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                movePage(9);
-              },
-              child: Text("Hide Post"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                movePage(10);
-              },
-              child: Text("IG Message"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                movePage(11);
-              },
-              child: Text("Pancake Sort"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                movePage(12);
-              },
-              child: Text("Whatsapp"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                movePage(13);
-              },
-              child: Text("Gojek Slide Panel"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                movePage(14);
-              },
-              child: Text("Tokopedia"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                movePage(15);
-              },
-              child: Text("Youtube"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                movePage(16);
-              },
-              child: Text("Custom Navbar"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                movePage(17);
-              },
-              child: Text("Select Varian"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                movePage(18);
-              },
-              child: Text("Tiktok Like"),
-            )
           ],
         ),
       ),
@@ -238,6 +189,9 @@ class _MenuState extends State<Menu> {
         break;
       case 18:
         className = TiktokLike();
+        break;
+      case 19:
+        className = Facebook();
         break;
       default:
         // do something else
