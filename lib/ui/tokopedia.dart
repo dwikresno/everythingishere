@@ -19,10 +19,10 @@ class _TokopediaState extends State<Tokopedia> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xff3eac44),
-        elevation: 0,
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Color(0xff3eac44),
+      //   elevation: 0,
+      // ),
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.symmetric(vertical: 20),

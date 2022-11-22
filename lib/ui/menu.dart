@@ -4,6 +4,7 @@ import 'package:all_is_here/ui/IG/ig_message.dart';
 import 'package:all_is_here/ui/animation_walk.dart';
 import 'package:all_is_here/ui/chooseseat.dart';
 import 'package:all_is_here/ui/custom_navbar.dart';
+import 'package:all_is_here/ui/dynamic_floating.dart';
 import 'package:all_is_here/ui/eyeanimation.dart';
 import 'package:all_is_here/ui/facebook.dart';
 import 'package:all_is_here/ui/gojek.dart';
@@ -53,6 +54,7 @@ class _MenuState extends State<Menu> {
     "Select Varian Tokopedia",
     "Tiktok Like",
     "Facebook",
+    "Dynamic Floating"
   ];
   TextEditingController searchController = TextEditingController();
 
@@ -192,6 +194,9 @@ class _MenuState extends State<Menu> {
         break;
       case 19:
         className = Facebook();
+        break;
+      case 20:
+        className = DynamicFloating();
         break;
       default:
         // do something else
