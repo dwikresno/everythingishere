@@ -43,6 +43,7 @@ dependencies:
   intl: ^0.17.0
   sliding_up_panel: ^2.0.0+1
   carousel_slider: ^4.1.1
+  flutter_emoji: ^2.4.0
 
 dev_dependencies:
   flutter_test:

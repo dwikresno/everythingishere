@@ -10,6 +10,7 @@ import 'package:all_is_here/ui/facebook.dart';
 import 'package:all_is_here/ui/gojek.dart';
 import 'package:all_is_here/ui/harvestmoon.dart';
 import 'package:all_is_here/ui/hide_post.dart';
+import 'package:all_is_here/ui/instagram_topic.dart';
 import 'package:all_is_here/ui/listchecked.dart';
 import 'package:all_is_here/ui/pancake_sort.dart';
 import 'package:all_is_here/ui/piano.dart';
@@ -54,7 +55,8 @@ class _MenuState extends State<Menu> {
     "Select Varian Tokopedia",
     "Tiktok Like",
     "Facebook",
-    "Dynamic Floating"
+    "Dynamic Floating",
+    "Instagram Topic"
   ];
   TextEditingController searchController = TextEditingController();
 
@@ -197,6 +199,9 @@ class _MenuState extends State<Menu> {
         break;
       case 20:
         className = DynamicFloating();
+        break;
+      case 21:
+        className = InstagramTopic();
         break;
       default:
         // do something else
