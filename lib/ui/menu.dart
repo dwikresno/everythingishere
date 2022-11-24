@@ -12,6 +12,7 @@ import 'package:all_is_here/ui/harvestmoon.dart';
 import 'package:all_is_here/ui/hide_post.dart';
 import 'package:all_is_here/ui/instagram_topic.dart';
 import 'package:all_is_here/ui/listchecked.dart';
+import 'package:all_is_here/ui/love_alarm.dart';
 import 'package:all_is_here/ui/pancake_sort.dart';
 import 'package:all_is_here/ui/piano.dart';
 import 'package:all_is_here/ui/pokemon.dart';
@@ -56,7 +57,8 @@ class _MenuState extends State<Menu> {
     "Tiktok Like",
     "Facebook",
     "Dynamic Floating",
-    "Instagram Topic"
+    "Instagram Topic",
+    "Love Alarm"
   ];
   TextEditingController searchController = TextEditingController();
 
@@ -113,7 +115,12 @@ class _MenuState extends State<Menu> {
                 itemBuilder: (context, index) {
                   return ElevatedButton(
                     onPressed: () {
-                      movePage(index);
+                      movePage(searchController.text != ""
+                          ? listFeature.indexWhere((element) => element
+                              .toString()
+                              .toLowerCase()
+                              .contains(searchController.text.toLowerCase()))
+                          : index);
                     },
                     child: Text(
                       listFeature
@@ -202,6 +209,9 @@ class _MenuState extends State<Menu> {
         break;
       case 21:
         className = InstagramTopic();
+        break;
+      case 22:
+        className = LoveAlarm();
         break;
       default:
         // do something else
