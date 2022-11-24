@@ -18,6 +18,7 @@ class _LoveAlarmState extends State<LoveAlarm> with TickerProviderStateMixin {
   List listFound = [];
   final random = new Random();
   Timer? _timer;
+  var listRange = [];
 
   @override
   void initState() {
@@ -28,17 +29,21 @@ class _LoveAlarmState extends State<LoveAlarm> with TickerProviderStateMixin {
       duration: Duration(seconds: 3),
     )..repeat();
 
+    for (double i = -1; i < 1; i += 0.1) {
+      listRange.add(i);
+    }
+    print(listRange);
     _timer = Timer.periodic(Duration(milliseconds: 500), (timer) {
       if (timer.tick % 10 == 0) {
         setState(() {
           var tempData = {
-            "x": random.nextDouble(),
-            "y": random.nextDouble(),
+            "x": listRange.elementAt(random.nextInt(listRange.length)),
+            "y": listRange.elementAt(random.nextInt(listRange.length)),
           };
           listFound.add(tempData);
         });
       }
-      print(listFound.length);
+      // print(listFound.length);
       if (listFound.length == 3) {
         timer.cancel();
       }
