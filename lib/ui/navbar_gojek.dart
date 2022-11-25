@@ -44,6 +44,10 @@ class _NavbarGojekState extends State<NavbarGojek> {
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
+        child: Image.network(
+          "https://picsum.photos/1920/1920?random=${selectedIndex}",
+          fit: BoxFit.cover,
+        ),
       ),
       bottomSheet: Container(
         padding: EdgeInsets.symmetric(horizontal: 10),
