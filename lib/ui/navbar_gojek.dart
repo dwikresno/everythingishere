@@ -119,6 +119,7 @@ class _NavbarGojekState extends State<NavbarGojek> {
                           movePage(0);
                         },
                         child: Container(
+                          color: Colors.transparent,
                           child: Icon(
                             Icons.home,
                           ),
@@ -131,6 +132,7 @@ class _NavbarGojekState extends State<NavbarGojek> {
                           movePage(1);
                         },
                         child: Container(
+                          color: Colors.transparent,
                           child: Icon(
                             Icons.explore,
                           ),
@@ -156,6 +158,7 @@ class _NavbarGojekState extends State<NavbarGojek> {
                           movePage(3);
                         },
                         child: Container(
+                          color: Colors.transparent,
                           child: Icon(
                             Icons.email,
                           ),
