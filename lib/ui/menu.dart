@@ -13,6 +13,7 @@ import 'package:all_is_here/ui/hide_post.dart';
 import 'package:all_is_here/ui/instagram_topic.dart';
 import 'package:all_is_here/ui/listchecked.dart';
 import 'package:all_is_here/ui/love_alarm.dart';
+import 'package:all_is_here/ui/navbar_gojek.dart';
 import 'package:all_is_here/ui/pancake_sort.dart';
 import 'package:all_is_here/ui/piano.dart';
 import 'package:all_is_here/ui/pokemon.dart';
@@ -58,7 +59,8 @@ class _MenuState extends State<Menu> {
     "Facebook",
     "Dynamic Floating",
     "Instagram Topic",
-    "Love Alarm"
+    "Love Alarm",
+    "Navbar Gojek"
   ];
   TextEditingController searchController = TextEditingController();
 
@@ -212,6 +214,9 @@ class _MenuState extends State<Menu> {
         break;
       case 22:
         className = LoveAlarm();
+        break;
+      case 23:
+        className = NavbarGojek();
         break;
       default:
         // do something else
