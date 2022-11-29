@@ -124,6 +124,7 @@ class _NavbarGojekState extends State<NavbarGojek> {
                       color: Colors.transparent,
                       child: Icon(
                         Icons.home,
+                        color: selectedIndex == 0 ? Color(0xff00880d) : null,
                       ),
                     ),
                   ),
@@ -137,6 +138,7 @@ class _NavbarGojekState extends State<NavbarGojek> {
                       color: Colors.transparent,
                       child: Icon(
                         Icons.explore,
+                        color: selectedIndex == 1 ? Color(0xff00880d) : null,
                       ),
                     ),
                   ),
@@ -150,6 +152,7 @@ class _NavbarGojekState extends State<NavbarGojek> {
                       color: Colors.transparent,
                       child: Icon(
                         Icons.message,
+                        color: selectedIndex == 2 ? Color(0xff00880d) : null,
                       ),
                     ),
                   ),
@@ -163,6 +166,7 @@ class _NavbarGojekState extends State<NavbarGojek> {
                       color: Colors.transparent,
                       child: Icon(
                         Icons.email,
+                        color: selectedIndex == 3 ? Color(0xff00880d) : null,
                       ),
                     ),
                   ),

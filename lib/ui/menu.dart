@@ -10,6 +10,7 @@ import 'package:all_is_here/ui/facebook.dart';
 import 'package:all_is_here/ui/gojek.dart';
 import 'package:all_is_here/ui/harvestmoon.dart';
 import 'package:all_is_here/ui/hide_post.dart';
+import 'package:all_is_here/ui/ig_flip_pp.dart';
 import 'package:all_is_here/ui/instagram_topic.dart';
 import 'package:all_is_here/ui/listchecked.dart';
 import 'package:all_is_here/ui/love_alarm.dart';
@@ -60,7 +61,8 @@ class _MenuState extends State<Menu> {
     "Dynamic Floating",
     "Instagram Topic",
     "Love Alarm",
-    "Navbar Gojek"
+    "Navbar Gojek",
+    "IG Flip PP"
   ];
   TextEditingController searchController = TextEditingController();
 
@@ -217,6 +219,9 @@ class _MenuState extends State<Menu> {
         break;
       case 23:
         className = NavbarGojek();
+        break;
+      case 24:
+        className = IGFlip();
         break;
       default:
         // do something else
