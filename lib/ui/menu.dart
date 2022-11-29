@@ -20,6 +20,7 @@ import 'package:all_is_here/ui/piano.dart';
 import 'package:all_is_here/ui/pokemon.dart';
 import 'package:all_is_here/ui/selected_variant.dart';
 import 'package:all_is_here/ui/snake.dart';
+import 'package:all_is_here/ui/thanks_150.dart';
 import 'package:all_is_here/ui/tiktok_like.dart';
 import 'package:all_is_here/ui/tokopedia.dart';
 import 'package:all_is_here/ui/whatsapp.dart';
@@ -62,7 +63,8 @@ class _MenuState extends State<Menu> {
     "Instagram Topic",
     "Love Alarm",
     "Navbar Gojek",
-    "IG Flip PP"
+    "IG Flip PP",
+    "Thanks 500"
   ];
   TextEditingController searchController = TextEditingController();
 
@@ -222,6 +224,9 @@ class _MenuState extends State<Menu> {
         break;
       case 24:
         className = IGFlip();
+        break;
+      case 25:
+        className = Thanks150();
         break;
       default:
         // do something else
