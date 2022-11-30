@@ -10,6 +10,7 @@ import 'package:all_is_here/ui/facebook.dart';
 import 'package:all_is_here/ui/gojek.dart';
 import 'package:all_is_here/ui/harvestmoon.dart';
 import 'package:all_is_here/ui/hide_post.dart';
+import 'package:all_is_here/ui/slide_animation.dart.dart';
 import 'package:all_is_here/ui/ig_flip_pp.dart';
 import 'package:all_is_here/ui/instagram_topic.dart';
 import 'package:all_is_here/ui/listchecked.dart';
@@ -64,7 +65,8 @@ class _MenuState extends State<Menu> {
     "Love Alarm",
     "Navbar Gojek",
     "IG Flip PP",
-    "Thanks 500"
+    "Thanks 150",
+    "Slide Animation"
   ];
   TextEditingController searchController = TextEditingController();
 
@@ -227,6 +229,9 @@ class _MenuState extends State<Menu> {
         break;
       case 25:
         className = Thanks150();
+        break;
+      case 26:
+        className = SlideAnimation();
         break;
       default:
         // do something else
