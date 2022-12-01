@@ -44,6 +44,7 @@ dependencies:
   sliding_up_panel: ^2.0.0+1
   carousel_slider: ^4.1.1
   flutter_emoji: ^2.4.0
+  animated_text_kit: ^4.2.2
 
 dev_dependencies:
   flutter_test:

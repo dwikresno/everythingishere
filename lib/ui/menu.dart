@@ -24,6 +24,7 @@ import 'package:all_is_here/ui/snake.dart';
 import 'package:all_is_here/ui/thanks_150.dart';
 import 'package:all_is_here/ui/tiktok_like.dart';
 import 'package:all_is_here/ui/tokopedia.dart';
+import 'package:all_is_here/ui/welcome_december.dart';
 import 'package:all_is_here/ui/whatsapp.dart';
 import 'package:all_is_here/ui/youtube.dart';
 import 'package:all_is_here/ui/zelda.dart';
@@ -66,7 +67,8 @@ class _MenuState extends State<Menu> {
     "Navbar Gojek",
     "IG Flip PP",
     "Thanks 150",
-    "Slide Animation"
+    "Slide Animation",
+    "Welcome December"
   ];
   TextEditingController searchController = TextEditingController();
 
@@ -232,6 +234,9 @@ class _MenuState extends State<Menu> {
         break;
       case 26:
         className = SlideAnimation();
+        break;
+      case 27:
+        className = WelcomeDecember();
         break;
       default:
         // do something else
