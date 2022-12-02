@@ -12,6 +12,7 @@ class _NavbarGojekState extends State<NavbarGojek> {
   double? posX = -1;
   int minusWidth = 0;
   bool isShow = true;
+  int countIndex = 4;
 
   movePage(index) {
     if (selectedIndex != index) {
@@ -20,21 +21,10 @@ class _NavbarGojekState extends State<NavbarGojek> {
         isShow = false;
         minusWidth = 0;
         selectedIndex = index;
-        switch (index) {
-          case 0:
-            posX = -1;
-            break;
-          case 1:
-            posX = -0.33;
-            break;
-          case 2:
-            posX = 0.33;
-            break;
-          case 3:
-            posX = 1;
-            break;
-        }
+        posX = (-1 + (index * (2 / (countIndex - 1)))).toDouble();
+        // posX = -0.5;
       });
+      print(posX);
     }
   }
 
@@ -73,7 +63,8 @@ class _NavbarGojekState extends State<NavbarGojek> {
               child: Column(
                 children: [
                   AnimatedContainer(
-                    width: MediaQuery.of(context).size.width / 4 - minusWidth,
+                    width: MediaQuery.of(context).size.width / countIndex -
+                        minusWidth,
                     alignment: Alignment(posX!, -1),
                     duration: Duration(milliseconds: 200),
                     height: 4,
@@ -88,7 +79,8 @@ class _NavbarGojekState extends State<NavbarGojek> {
                   Visibility(
                     visible: isShow,
                     child: Container(
-                      width: MediaQuery.of(context).size.width / 4 - minusWidth,
+                      width: MediaQuery.of(context).size.width / countIndex -
+                          minusWidth,
                       height: 40,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
@@ -170,7 +162,21 @@ class _NavbarGojekState extends State<NavbarGojek> {
                       ),
                     ),
                   ),
-                )
+                ),
+                // Expanded(
+                //   child: GestureDetector(
+                //     onTap: () {
+                //       movePage(4);
+                //     },
+                //     child: Container(
+                //       color: Colors.transparent,
+                //       child: Icon(
+                //         Icons.email,
+                //         color: selectedIndex == 4 ? Color(0xff00880d) : null,
+                //       ),
+                //     ),
+                //   ),
+                // )
               ],
             ),
           ],
