@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:all_is_here/ui/IG/ig_message.dart';
 import 'package:all_is_here/ui/animation_walk.dart';
 import 'package:all_is_here/ui/chooseseat.dart';
+import 'package:all_is_here/ui/color_blind_test.dart';
 import 'package:all_is_here/ui/custom_navbar.dart';
 import 'package:all_is_here/ui/dynamic_floating.dart';
 import 'package:all_is_here/ui/eyeanimation.dart';
@@ -68,7 +69,8 @@ class _MenuState extends State<Menu> {
     "IG Flip PP",
     "Thanks 150",
     "Slide Animation",
-    "Welcome December"
+    "Welcome December",
+    "Color Blind",
   ];
   TextEditingController searchController = TextEditingController();
 
@@ -237,6 +239,9 @@ class _MenuState extends State<Menu> {
         break;
       case 27:
         className = WelcomeDecember();
+        break;
+      case 28:
+        className = ColorBlindTest();
         break;
       default:
         // do something else
