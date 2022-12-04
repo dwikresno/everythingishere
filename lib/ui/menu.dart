@@ -11,7 +11,7 @@ import 'package:all_is_here/ui/facebook.dart';
 import 'package:all_is_here/ui/gojek.dart';
 import 'package:all_is_here/ui/harvestmoon.dart';
 import 'package:all_is_here/ui/hide_post.dart';
-import 'package:all_is_here/ui/slide_animation.dart.dart';
+import 'package:all_is_here/ui/slide_animation.dart';
 import 'package:all_is_here/ui/ig_flip_pp.dart';
 import 'package:all_is_here/ui/instagram_topic.dart';
 import 'package:all_is_here/ui/listchecked.dart';

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:math';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
@@ -20,6 +21,7 @@ class _ColorBlindTestState extends State<ColorBlindTest> {
   Timer? timer;
   int highScore = 0;
   String statusAnswer = "";
+  int indexBG = 1;
 
   @override
   void initState() {
@@ -57,14 +59,64 @@ class _ColorBlindTestState extends State<ColorBlindTest> {
     });
   }
 
+  answer(index) {
+    setState(() {
+      if (timerCount > 0) {
+        if (index == correctIndex) {
+          if (statusAnswer == "wrong") {
+            statusAnswer = "";
+          } else {
+            indexBG++;
+            score++;
+            timerCount += 10;
+            statusAnswer = "correct";
+          }
+          refreshColor();
+        } else {
+          statusAnswer = "wrong";
+          if (timerCount - 5 > 0) {
+            timerCount -= 5;
+          } else {
+            timerCount = 0;
+            timer!.cancel();
+          }
+        }
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
+          Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: NetworkImage(
+                  "https://picsum.photos/1080/1920?random=${indexBG + 10}",
+                ),
+                fit: BoxFit.cover,
+              ),
+            ),
+            child: ClipRRect(
+              // make sure we apply clip it properly
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+                child: Container(
+                  alignment: Alignment.center,
+                  color: Colors.grey.withOpacity(0.1),
+                ),
+              ),
+            ),
+          ),
           Column(
             children: [
-              SizedBox(height: MediaQuery.of(context).size.height / 30),
+              SizedBox(
+                height: 50,
+              ),
               // Container(
               //   margin: EdgeInsets.all(20),
               //   child: Row(
@@ -81,6 +133,11 @@ class _ColorBlindTestState extends State<ColorBlindTest> {
               Row(
                 children: [
                   Container(
+                    padding: EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: Colors.white,
+                    ),
                     margin: EdgeInsets.all(20),
                     child: Text(
                       "SCORE : ${score.toString()}",
@@ -91,6 +148,11 @@ class _ColorBlindTestState extends State<ColorBlindTest> {
                   ),
                   Spacer(),
                   Container(
+                    padding: EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: Colors.white,
+                    ),
                     margin: EdgeInsets.all(20),
                     child: Text(
                       "HIGH SCORE : ${highScore.toString()}",
@@ -102,6 +164,11 @@ class _ColorBlindTestState extends State<ColorBlindTest> {
                 ],
               ),
               Container(
+                padding: EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: Colors.white,
+                ),
                 margin: EdgeInsets.all(20),
                 child: Text(
                   "${(timerCount ~/ 60).round()}:${(timerCount % 60) < 10 ? '0' : ''}${timerCount % 60}",
@@ -111,6 +178,11 @@ class _ColorBlindTestState extends State<ColorBlindTest> {
                 ),
               ),
               Container(
+                padding: EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: statusAnswer != "" ? Colors.white : Colors.transparent,
+                ),
                 margin: EdgeInsets.all(20),
                 child: Text(
                   statusAnswer.toUpperCase(),
@@ -135,29 +207,7 @@ class _ColorBlindTestState extends State<ColorBlindTest> {
                     itemBuilder: (BuildContext context, int index) {
                       return GestureDetector(
                         onTap: () {
-                          setState(() {
-                            if (timerCount > 0) {
-                              if (index == correctIndex) {
-                                if (statusAnswer == "wrong") {
-                                  statusAnswer = "";
-                                } else {
-                                  score++;
-                                  timerCount += 10;
-                                  statusAnswer = "correct";
-                                }
-
-                                refreshColor();
-                              } else {
-                                statusAnswer = "wrong";
-                                if (timerCount - 5 > 0) {
-                                  timerCount -= 5;
-                                } else {
-                                  timerCount = 0;
-                                  timer!.cancel();
-                                }
-                              }
-                            }
-                          });
+                          answer(index);
                         },
                         child: Stack(
                           children: [
