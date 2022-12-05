@@ -8,6 +8,7 @@ import 'package:all_is_here/ui/custom_navbar.dart';
 import 'package:all_is_here/ui/dynamic_floating.dart';
 import 'package:all_is_here/ui/eyeanimation.dart';
 import 'package:all_is_here/ui/facebook.dart';
+import 'package:all_is_here/ui/game_tap_screen.dart';
 import 'package:all_is_here/ui/gojek.dart';
 import 'package:all_is_here/ui/google_page.dart';
 import 'package:all_is_here/ui/harvestmoon.dart';
@@ -72,7 +73,8 @@ class _MenuState extends State<Menu> {
     "Slide Animation",
     "Welcome December",
     "Color Blind",
-    "Google Page"
+    "Google Page",
+    "Game Tap Screen"
   ];
   TextEditingController searchController = TextEditingController();
 
@@ -247,6 +249,9 @@ class _MenuState extends State<Menu> {
         break;
       case 29:
         className = GooglePage();
+        break;
+      case 30:
+        className = GameTapScreen();
         break;
       default:
         // do something else
