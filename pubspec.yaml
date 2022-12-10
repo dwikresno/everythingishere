@@ -46,6 +46,8 @@ dependencies:
   flutter_emoji: ^2.4.0
   animated_text_kit: ^4.2.2
   google_fonts: ^3.0.1
+  flip_card: ^0.6.0
+  image_picker: ^0.8.6
 
 dev_dependencies:
   flutter_test:

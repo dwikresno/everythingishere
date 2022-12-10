@@ -11,6 +11,7 @@ import 'package:all_is_here/ui/facebook.dart';
 import 'package:all_is_here/ui/game_tap_screen.dart';
 import 'package:all_is_here/ui/gojek.dart';
 import 'package:all_is_here/ui/google_page.dart';
+import 'package:all_is_here/ui/guess_person.dart';
 import 'package:all_is_here/ui/harvestmoon.dart';
 import 'package:all_is_here/ui/hide_post.dart';
 import 'package:all_is_here/ui/slide_animation.dart';
@@ -74,7 +75,8 @@ class _MenuState extends State<Menu> {
     "Welcome December",
     "Color Blind",
     "Google Page",
-    "Game Tap Screen"
+    "Game Tap Screen",
+    "Guess Person"
   ];
   TextEditingController searchController = TextEditingController();
 
@@ -252,6 +254,9 @@ class _MenuState extends State<Menu> {
         break;
       case 30:
         className = GameTapScreen();
+        break;
+      case 31:
+        className = GuessPerson();
         break;
       default:
         // do something else
