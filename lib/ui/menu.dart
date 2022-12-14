@@ -25,6 +25,7 @@ import 'package:all_is_here/ui/piano.dart';
 import 'package:all_is_here/ui/pokemon.dart';
 import 'package:all_is_here/ui/selected_variant.dart';
 import 'package:all_is_here/ui/snake.dart';
+import 'package:all_is_here/ui/snow.dart';
 import 'package:all_is_here/ui/thanks_150.dart';
 import 'package:all_is_here/ui/tiktok_like.dart';
 import 'package:all_is_here/ui/tokopedia.dart';
@@ -76,7 +77,8 @@ class _MenuState extends State<Menu> {
     "Color Blind",
     "Google Page",
     "Game Tap Screen",
-    "Guess Person"
+    "Guess Person",
+    "Snow"
   ];
   TextEditingController searchController = TextEditingController();
 
@@ -257,6 +259,9 @@ class _MenuState extends State<Menu> {
         break;
       case 31:
         className = GuessPerson();
+        break;
+      case 32:
+        className = Snow();
         break;
       default:
         // do something else
