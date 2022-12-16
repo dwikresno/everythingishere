@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:all_is_here/ui/IG/ig_message.dart';
+import 'package:all_is_here/ui/IG_note.dart';
 import 'package:all_is_here/ui/animation_walk.dart';
 import 'package:all_is_here/ui/chooseseat.dart';
 import 'package:all_is_here/ui/color_blind_test.dart';
@@ -78,7 +79,8 @@ class _MenuState extends State<Menu> {
     "Google Page",
     "Game Tap Screen",
     "Guess Person",
-    "Snow"
+    "Snow",
+    "IG Note"
   ];
   TextEditingController searchController = TextEditingController();
 
@@ -262,6 +264,9 @@ class _MenuState extends State<Menu> {
         break;
       case 32:
         className = Snow();
+        break;
+      case 33:
+        className = IGNote();
         break;
       default:
         // do something else
