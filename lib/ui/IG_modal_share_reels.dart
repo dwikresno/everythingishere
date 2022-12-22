@@ -23,7 +23,7 @@ class _IGModalShareReelsState extends State<IGModalShareReels> {
   double posX = 0.0;
   double posY = 0.0;
   int currentIndex = -1;
-  List listPerson = ['My Love', "Crush", "Lovely", "Wifu"];
+  List listPerson = ['My Love', "Crush", "Lovely", "Waifu"];
 
   @override
   void initState() {
@@ -374,11 +374,7 @@ class _IGModalShareReelsState extends State<IGModalShareReels> {
                             Positioned(
                               top: 0,
                               left: (75.0 * currentIndex) +
-                                  (currentIndex == 0
-                                      ? 15
-                                      : currentIndex < 3
-                                          ? 10
-                                          : 5),
+                                  (currentIndex < 3 ? 8 : 5),
                               child: Text(
                                 currentIndex < 0
                                     ? ""
