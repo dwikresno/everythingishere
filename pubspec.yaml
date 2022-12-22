@@ -48,6 +48,9 @@ dependencies:
   google_fonts: ^3.0.1
   flip_card: ^0.6.0
   image_picker: ^0.8.6
+  video_player: ^2.4.10
+  extended_image: ^6.3.4
+  flutter_svg: ^1.1.6
 
 dev_dependencies:
   flutter_test:
@@ -78,6 +81,7 @@ flutter:
     - assets/harvestmoon/
     - assets/animation/
     - assets/
+    - assets/reel/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

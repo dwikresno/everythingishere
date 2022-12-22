@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:all_is_here/ui/IG/ig_message.dart';
+import 'package:all_is_here/ui/IG_modal_share_reels.dart';
 import 'package:all_is_here/ui/IG_note.dart';
 import 'package:all_is_here/ui/animation_walk.dart';
 import 'package:all_is_here/ui/chooseseat.dart';
@@ -9,6 +10,7 @@ import 'package:all_is_here/ui/custom_navbar.dart';
 import 'package:all_is_here/ui/dynamic_floating.dart';
 import 'package:all_is_here/ui/eyeanimation.dart';
 import 'package:all_is_here/ui/facebook.dart';
+import 'package:all_is_here/ui/fireworks.dart';
 import 'package:all_is_here/ui/game_tap_screen.dart';
 import 'package:all_is_here/ui/gojek.dart';
 import 'package:all_is_here/ui/google_page.dart';
@@ -80,7 +82,9 @@ class _MenuState extends State<Menu> {
     "Game Tap Screen",
     "Guess Person",
     "Snow",
-    "IG Note"
+    "IG Note",
+    "Firework",
+    "IG Share Reels"
   ];
   TextEditingController searchController = TextEditingController();
 
@@ -267,6 +271,12 @@ class _MenuState extends State<Menu> {
         break;
       case 33:
         className = IGNote();
+        break;
+      case 34:
+        className = Firework();
+        break;
+      case 35:
+        className = IGModalShareReels();
         break;
       default:
         // do something else
