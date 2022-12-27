@@ -31,6 +31,7 @@ import 'package:all_is_here/ui/selected_variant.dart';
 import 'package:all_is_here/ui/snake.dart';
 import 'package:all_is_here/ui/snow.dart';
 import 'package:all_is_here/ui/thanks_150.dart';
+import 'package:all_is_here/ui/tictactoe.dart';
 import 'package:all_is_here/ui/tiktok_like.dart';
 import 'package:all_is_here/ui/tokopedia.dart';
 import 'package:all_is_here/ui/welcome_december.dart';
@@ -86,7 +87,8 @@ class _MenuState extends State<Menu> {
     "IG Note",
     "Firework",
     "IG Share Reels",
-    "Discord Card Move"
+    "Discord Card Move",
+    "Tic-Tac-Toe"
   ];
   TextEditingController searchController = TextEditingController();
 
@@ -282,6 +284,9 @@ class _MenuState extends State<Menu> {
         break;
       case 36:
         className = DiscordCard();
+        break;
+      case 37:
+        className = TicTacToe();
         break;
       default:
         // do something else
