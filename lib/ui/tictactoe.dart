@@ -124,6 +124,7 @@ class _TicTacToeState extends State<TicTacToe> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        padding: EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -132,16 +133,48 @@ class _TicTacToeState extends State<TicTacToe> {
               child: Row(
                 children: [
                   Center(
-                    child: Text(
-                      "Score X : $x",
-                      style: TextStyle(fontSize: 30),
+                    child: Row(
+                      children: [
+                        Text(
+                          "Score",
+                          style: TextStyle(fontSize: 30),
+                        ),
+                        Text(
+                          " X ",
+                          style: TextStyle(
+                            fontSize: 30,
+                            color: Colors.blue,
+                          ),
+                        ),
+                        Text(
+                          ": $x",
+                          style: TextStyle(fontSize: 30),
+                        ),
+                      ],
                     ),
                   ),
                   Spacer(),
                   Center(
-                    child: Text(
-                      "Score O : $o",
-                      style: TextStyle(fontSize: 30),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Score",
+                          style: TextStyle(fontSize: 30),
+                        ),
+                        Text(
+                          " O ",
+                          style: TextStyle(
+                            fontSize: 30,
+                            color: Colors.redAccent,
+                          ),
+                        ),
+                        Text(
+                          ": $o",
+                          style: TextStyle(fontSize: 30),
+                        ),
+                      ],
                     ),
                   ),
                 ],
@@ -149,43 +182,72 @@ class _TicTacToeState extends State<TicTacToe> {
             ),
             SizedBox(height: 20),
             Container(
-              child: Center(
-                child: Text(
-                  "Next Turn : $_currentPlayer",
-                  style: TextStyle(fontSize: 50),
-                ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Next Turn : ",
+                    style: TextStyle(fontSize: 40),
+                  ),
+                  Text(
+                    "$_currentPlayer",
+                    style: TextStyle(
+                      fontSize: 40,
+                      color: _currentPlayer == "X"
+                          ? Colors.blue
+                          : Colors.redAccent,
+                    ),
+                  ),
+                ],
               ),
             ),
             SizedBox(height: 20),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(3, (indexColumn) {
-                return Container(
-                  height: 100,
-                  width: MediaQuery.of(context).size.width,
-                  child: Row(
-                    children: List.generate(3, (indexRow) {
-                      return Expanded(
-                        child: GestureDetector(
-                          onTap: () => _playMove(indexRow, indexColumn),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.black),
-                            ),
-                            child: Center(
-                              child: Text(
-                                _board![indexRow][indexColumn],
-                                style: TextStyle(fontSize: 72),
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(
+                  width: 2,
+                  color: Colors.blueGrey,
+                ),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: List.generate(3, (indexColumn) {
+                  return Container(
+                    height: 100,
+                    width: MediaQuery.of(context).size.width,
+                    child: Row(
+                      children: List.generate(3, (indexRow) {
+                        return Expanded(
+                          child: GestureDetector(
+                            onTap: () => _playMove(indexRow, indexColumn),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  width: 2,
+                                  color: Colors.blueGrey,
+                                ),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  _board![indexRow][indexColumn],
+                                  style: TextStyle(
+                                    fontSize: 72,
+                                    color: _board![indexRow][indexColumn] == "X"
+                                        ? Colors.blue
+                                        : Colors.redAccent,
+                                  ),
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      );
-                    }),
-                  ),
-                );
-              }),
+                        );
+                      }),
+                    ),
+                  );
+                }),
+              ),
             ),
           ],
         ),
