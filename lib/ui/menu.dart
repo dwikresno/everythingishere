@@ -7,6 +7,7 @@ import 'package:all_is_here/ui/animation_walk.dart';
 import 'package:all_is_here/ui/chooseseat.dart';
 import 'package:all_is_here/ui/color_blind_test.dart';
 import 'package:all_is_here/ui/custom_navbar.dart';
+import 'package:all_is_here/ui/dark_light_mode.dart';
 import 'package:all_is_here/ui/discord_card.dart';
 import 'package:all_is_here/ui/dynamic_floating.dart';
 import 'package:all_is_here/ui/eyeanimation.dart';
@@ -88,7 +89,8 @@ class _MenuState extends State<Menu> {
     "Firework",
     "IG Share Reels",
     "Discord Card Move",
-    "Tic-Tac-Toe"
+    "Tic-Tac-Toe",
+    "Dark Light Mode"
   ];
   TextEditingController searchController = TextEditingController();
 
@@ -287,6 +289,9 @@ class _MenuState extends State<Menu> {
         break;
       case 37:
         className = TicTacToe();
+        break;
+      case 38:
+        className = DarkLightMode();
         break;
       default:
         // do something else
