@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -10,86 +11,148 @@ class Firework extends StatefulWidget {
 }
 
 class _FireworkState extends State<Firework> {
-  double posY = -1200;
-  double posX = 20;
-  double height = 1000;
+  double posY = -10;
+  double posX = 200;
+  List listRandomChild = [];
+  bool visible = true;
+  bool visibleChild = false;
+  List<Color> listColor = [
+    Colors.blue,
+    Colors.red,
+    Colors.yellow,
+    Colors.green,
+    Colors.amber,
+    Colors.purple
+  ];
+  int countChild = 200;
+  var selectedColor;
 
   @override
   void initState() {
-    // TODO: implement initState
-    Future.delayed(Duration(milliseconds: 100), () {
+    selectedColor = listColor.elementAt(Random().nextInt(listColor.length));
+    start();
+    super.initState();
+  }
+
+  start() {
+    setState(() {
+      listRandomChild.clear();
+      List.generate(countChild, (index) {
+        listRandomChild.add(
+          {
+            "x": 200.toDouble(),
+            "y": 500.toDouble(),
+            "speed": Random().nextInt(8) + 4,
+            "color": listColor.elementAt(Random().nextInt(listColor.length)),
+          },
+        );
+      });
+    });
+    Future.delayed(Duration(milliseconds: 500), () {
       setState(() {
         posY = 500;
         posX = 200;
       });
     });
-    Future.delayed(Duration(milliseconds: 100), () {
-      setState(() {
-        height = 5;
-      });
-    });
-
-    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage(
-                  "https://picsum.photos/1080/1920?random=1",
-                ),
-                fit: BoxFit.cover,
-              ),
-            ),
-            child: ClipRRect(
-              // make sure we apply clip it properly
-              child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+      backgroundColor: Colors.black,
+      body: Container(
+        child: Stack(
+          children: [
+            AnimatedPositioned(
+              duration: Duration(milliseconds: 1500),
+              curve: Curves.linear,
+              bottom: posY,
+              left: posX,
+              child: Visibility(
+                visible: visible,
                 child: Container(
-                  alignment: Alignment.center,
-                  color: Color(0xFF686868).withOpacity(0.1),
-                ),
-              ),
-            ),
-          ),
-          AnimatedPositioned(
-            duration: Duration(milliseconds: 1000),
-            curve: Curves.fastOutSlowIn,
-            bottom: posY,
-            left: posX,
-            child: Transform.rotate(
-              angle: 0.2,
-              child: AnimatedContainer(
-                duration: Duration(milliseconds: 1000),
-                curve: Curves.linear,
-                height: height,
-                width: 5,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  gradient: LinearGradient(
-                    colors: [
-                      Color(0xff74acdf).withOpacity(0.1),
-                      Color(0xffffffff).withOpacity(0.4),
-                      Color(0xfff5b40c).withOpacity(0.8),
-                      Color(0xffffffff),
-                      Color(0xff74acdf),
-                    ],
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter,
+                  height: 5,
+                  width: 5,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    color: selectedColor,
                   ),
                 ),
               ),
+              onEnd: () {
+                setState(() {
+                  visible = false;
+                  visibleChild = true;
+                  List.generate(countChild, (index) {
+                    listRandomChild[index]['x'] =
+                        (Random().nextInt(posX.toInt() + 300) - 20).toDouble();
+                    listRandomChild[index]['y'] =
+                        (Random().nextInt(posY.toInt() + 300) - 20).toDouble();
+                    listRandomChild[index]['color'] = selectedColor;
+                  });
+                  Future.delayed(Duration(milliseconds: 1500), () {
+                    if (mounted)
+                      setState(() {
+                        posY = -10;
+                        posX = (Random().nextInt(200)).toDouble();
+                        visibleChild = false;
+                        selectedColor = listColor
+                            .elementAt(Random().nextInt(listColor.length));
+                      });
+                  });
+
+                  Future.delayed(Duration(milliseconds: 2500), () {
+                    if (mounted)
+                      setState(() {
+                        visible = true;
+                      });
+                  });
+                });
+              },
             ),
-          ),
-        ],
+            Stack(
+              children: List.generate(listRandomChild.length, (index) {
+                return AnimatedPositioned(
+                  duration: Duration(milliseconds: 2000),
+                  curve: Curves.linear,
+                  left: listRandomChild.elementAt(index)['x'],
+                  bottom: listRandomChild.elementAt(index)['y'],
+                  child: AnimatedOpacity(
+                    opacity: visibleChild ? 1.0 : 0.0,
+                    duration: Duration(milliseconds: visibleChild ? 100 : 500),
+                    child: Container(
+                      height: 5,
+                      width: 5,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: listRandomChild.elementAt(index)['color'],
+                      ),
+                    ),
+                  ),
+                  onEnd: () {
+                    start();
+                  },
+                );
+              }),
+            )
+          ],
+        ),
       ),
     );
+  }
+}
+
+class BezierTween extends Tween<Offset> {
+  final Offset begin;
+  final Offset end;
+  final Offset control;
+
+  BezierTween({required this.begin, required this.end, required this.control})
+      : super(begin: begin, end: end);
+
+  @override
+  Offset lerp(double t) {
+    final t1 = 1 - t;
+    return begin * t1 * t1 + control * 2 * t1 * t + end * t * t;
   }
 }
