@@ -35,87 +35,89 @@ class _SelectedVariantState extends State<SelectedVariant> {
           color: Colors.white,
         ),
       ),
-      body: Container(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.width - 100,
-              child: Image.network(
-                "https://dummyjson.com/image/i/products/1/1.jpg",
-                fit: BoxFit.cover,
+      body: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.width - 100,
+                child: Image.network(
+                  "https://dummyjson.com/image/i/products/1/1.jpg",
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
-            Container(
-              margin: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Rp 8.000.000",
-                    style: TextStyle(
-                      fontSize: 26,
-                      fontWeight: FontWeight.w700,
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Rp 8.000.000",
+                      style: TextStyle(
+                        fontSize: 26,
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    "iPhone 9 Garansi Resmi",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
+                    SizedBox(
+                      height: 10,
                     ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    "Terjual 1.600",
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
+                    Text(
+                      "iPhone 9 Garansi Resmi",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
-                  ),
-                ],
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      "Terjual 1.600",
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Divider(
-              height: 4,
-              color: Colors.grey,
-            ),
-            Container(
-              margin: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Pilih Varian",
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Container(
-                    child: Wrap(
-                      children: variantModel.variant1!.map((item) {
-                        return widgetButtonVariannt(
-                          id: item.idVariant1,
-                          lable: item.namaVariant1!,
-                          selected: selectedVariant1 == item.idVariant1!,
-                        );
-                      }).toList(),
-                    ),
-                  ),
-                ],
+              Divider(
+                height: 4,
+                color: Colors.grey,
               ),
-            ),
-          ],
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Pilih Varian",
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Container(
+                      child: Wrap(
+                        children: variantModel.variant1!.map((item) {
+                          return widgetButtonVariannt(
+                            id: item.idVariant1,
+                            lable: item.namaVariant1!,
+                            selected: selectedVariant1 == item.idVariant1!,
+                          );
+                        }).toList(),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       bottomSheet: bottonBottom(),
@@ -284,6 +286,7 @@ class _SelectedVariantState extends State<SelectedVariant> {
   showModal() {
     showModalBottomSheet<void>(
       context: context,
+      isScrollControlled: true,
       builder: (BuildContext context) {
         return StatefulBuilder(
             builder: (BuildContext context, StateSetter setStateTemp) {

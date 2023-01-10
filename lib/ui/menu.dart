@@ -19,6 +19,7 @@ import 'package:all_is_here/ui/google_page.dart';
 import 'package:all_is_here/ui/guess_person.dart';
 import 'package:all_is_here/ui/harvestmoon.dart';
 import 'package:all_is_here/ui/hide_post.dart';
+import 'package:all_is_here/ui/hit_calculate.dart';
 import 'package:all_is_here/ui/slide_animation.dart';
 import 'package:all_is_here/ui/ig_flip_pp.dart';
 import 'package:all_is_here/ui/instagram_topic.dart';
@@ -35,6 +36,7 @@ import 'package:all_is_here/ui/thanks_150.dart';
 import 'package:all_is_here/ui/tictactoe.dart';
 import 'package:all_is_here/ui/tiktok_like.dart';
 import 'package:all_is_here/ui/tokopedia.dart';
+import 'package:all_is_here/ui/tokopedia_top_tabbar.dart';
 import 'package:all_is_here/ui/welcome_december.dart';
 import 'package:all_is_here/ui/whatsapp.dart';
 import 'package:all_is_here/ui/youtube.dart';
@@ -72,7 +74,7 @@ class _MenuState extends State<Menu> {
     "Select Varian Tokopedia",
     "Tiktok Like",
     "Facebook",
-    "Dynamic Floating",
+    "Dynamic Floating Tokopedia",
     "Instagram Topic",
     "Love Alarm",
     "Navbar Gojek",
@@ -90,7 +92,9 @@ class _MenuState extends State<Menu> {
     "IG Share Reels",
     "Discord Card Move",
     "Tic-Tac-Toe",
-    "Dark Light Mode"
+    "Dark Light Mode",
+    "Tokopedia Top Tabbar",
+    "Hit Calculate"
   ];
   TextEditingController searchController = TextEditingController();
 
@@ -104,10 +108,12 @@ class _MenuState extends State<Menu> {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitDown,
-      DeviceOrientation.portraitUp,
-    ]);
+    // SystemChrome.setPreferredOrientations([
+    //   DeviceOrientation.portraitDown,
+    //   DeviceOrientation.portraitUp,
+    //   DeviceOrientation.landscapeLeft,
+    //   DeviceOrientation.landscapeRight,
+    // ]);
     return Scaffold(
       // appBar: AppBar(),
       body: Container(
@@ -151,7 +157,15 @@ class _MenuState extends State<Menu> {
                           ? listFeature.indexWhere((element) => element
                               .toString()
                               .toLowerCase()
-                              .contains(searchController.text.toLowerCase()))
+                              .contains(listFeature
+                                  .where((element) => element
+                                      .toString()
+                                      .toLowerCase()
+                                      .contains(
+                                          searchController.text.toLowerCase()))
+                                  .elementAt(index)
+                                  .toString()
+                                  .toLowerCase()))
                           : index);
                     },
                     child: Text(
@@ -292,6 +306,12 @@ class _MenuState extends State<Menu> {
         break;
       case 38:
         className = DarkLightMode();
+        break;
+      case 39:
+        className = TokopediaTopTabbar();
+        break;
+      case 40:
+        className = HitCalculate();
         break;
       default:
         // do something else
