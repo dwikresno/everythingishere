@@ -4,6 +4,7 @@ import 'package:all_is_here/ui/IG/ig_message.dart';
 import 'package:all_is_here/ui/IG_modal_share_reels.dart';
 import 'package:all_is_here/ui/IG_note.dart';
 import 'package:all_is_here/ui/animation_walk.dart';
+import 'package:all_is_here/ui/chess_clock.dart';
 import 'package:all_is_here/ui/chooseseat.dart';
 import 'package:all_is_here/ui/color_blind_test.dart';
 import 'package:all_is_here/ui/custom_navbar.dart';
@@ -94,7 +95,8 @@ class _MenuState extends State<Menu> {
     "Tic-Tac-Toe",
     "Dark Light Mode",
     "Tokopedia Top Tabbar",
-    "Hit Calculate"
+    "Hit Calculate",
+    "Chess Calculate"
   ];
   TextEditingController searchController = TextEditingController();
 
@@ -312,6 +314,9 @@ class _MenuState extends State<Menu> {
         break;
       case 40:
         className = HitCalculate();
+        break;
+      case 41:
+        className = ChessClock();
         break;
       default:
         // do something else
