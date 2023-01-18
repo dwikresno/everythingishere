@@ -8,6 +8,7 @@ import 'package:all_is_here/ui/chess_clock.dart';
 import 'package:all_is_here/ui/chooseseat.dart';
 import 'package:all_is_here/ui/color_blind_test.dart';
 import 'package:all_is_here/ui/custom_navbar.dart';
+import 'package:all_is_here/ui/daily_reward.dart';
 import 'package:all_is_here/ui/dark_light_mode.dart';
 import 'package:all_is_here/ui/discord_card.dart';
 import 'package:all_is_here/ui/dynamic_floating.dart';
@@ -96,7 +97,8 @@ class _MenuState extends State<Menu> {
     "Dark Light Mode",
     "Tokopedia Top Tabbar",
     "Hit Calculate",
-    "Chess Calculate"
+    "Chess Clock",
+    "Daily Reward"
   ];
   TextEditingController searchController = TextEditingController();
 
@@ -317,6 +319,9 @@ class _MenuState extends State<Menu> {
         break;
       case 41:
         className = ChessClock();
+        break;
+      case 42:
+        className = DailyReward();
         break;
       default:
         // do something else
