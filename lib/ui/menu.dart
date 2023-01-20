@@ -22,6 +22,7 @@ import 'package:all_is_here/ui/guess_person.dart';
 import 'package:all_is_here/ui/harvestmoon.dart';
 import 'package:all_is_here/ui/hide_post.dart';
 import 'package:all_is_here/ui/hit_calculate.dart';
+import 'package:all_is_here/ui/manage_menu_position.dart';
 import 'package:all_is_here/ui/slide_animation.dart';
 import 'package:all_is_here/ui/ig_flip_pp.dart';
 import 'package:all_is_here/ui/instagram_topic.dart';
@@ -98,7 +99,8 @@ class _MenuState extends State<Menu> {
     "Tokopedia Top Tabbar",
     "Hit Calculate",
     "Chess Clock",
-    "Daily Reward"
+    "Daily Reward",
+    "Manage Menu Position"
   ];
   TextEditingController searchController = TextEditingController();
 
@@ -322,6 +324,9 @@ class _MenuState extends State<Menu> {
         break;
       case 42:
         className = DailyReward();
+        break;
+      case 43:
+        className = ManageMenuPosition();
         break;
       default:
         // do something else

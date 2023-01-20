@@ -51,6 +51,7 @@ dependencies:
   video_player: ^2.4.10
   extended_image: ^6.3.4
   flutter_svg: ^1.1.6
+  flutter_draggable_gridview: ^0.0.7
 
 dev_dependencies:
   flutter_test:
