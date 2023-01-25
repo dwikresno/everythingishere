@@ -4,6 +4,7 @@ import 'package:all_is_here/ui/IG/ig_message.dart';
 import 'package:all_is_here/ui/IG_modal_share_reels.dart';
 import 'package:all_is_here/ui/IG_note.dart';
 import 'package:all_is_here/ui/animation_walk.dart';
+import 'package:all_is_here/ui/chat_gpt.dart';
 import 'package:all_is_here/ui/chess_clock.dart';
 import 'package:all_is_here/ui/chooseseat.dart';
 import 'package:all_is_here/ui/color_blind_test.dart';
@@ -100,7 +101,8 @@ class _MenuState extends State<Menu> {
     "Hit Calculate",
     "Chess Clock",
     "Daily Reward",
-    "Manage Menu Position"
+    "Manage Menu Position",
+    "Chat GPT"
   ];
   TextEditingController searchController = TextEditingController();
 
@@ -327,6 +329,9 @@ class _MenuState extends State<Menu> {
         break;
       case 43:
         className = ManageMenuPosition();
+        break;
+      case 44:
+        className = ChatGPT();
         break;
       default:
         // do something else
