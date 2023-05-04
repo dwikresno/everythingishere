@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:all_is_here/matrix.dart';
 import 'package:all_is_here/ui/IG/ig_message.dart';
 import 'package:all_is_here/ui/IG_modal_share_reels.dart';
 import 'package:all_is_here/ui/IG_note.dart';
@@ -9,6 +10,7 @@ import 'package:all_is_here/ui/chess_clock.dart';
 import 'package:all_is_here/ui/chooseseat.dart';
 import 'package:all_is_here/ui/color_blind_test.dart';
 import 'package:all_is_here/ui/custom_navbar.dart';
+import 'package:all_is_here/ui/custom_table_match.dart';
 import 'package:all_is_here/ui/daily_reward.dart';
 import 'package:all_is_here/ui/dark_light_mode.dart';
 import 'package:all_is_here/ui/discord_card.dart';
@@ -24,6 +26,7 @@ import 'package:all_is_here/ui/harvestmoon.dart';
 import 'package:all_is_here/ui/hide_post.dart';
 import 'package:all_is_here/ui/hit_calculate.dart';
 import 'package:all_is_here/ui/manage_menu_position.dart';
+import 'package:all_is_here/ui/say_love_u.dart';
 import 'package:all_is_here/ui/slide_animation.dart';
 import 'package:all_is_here/ui/ig_flip_pp.dart';
 import 'package:all_is_here/ui/instagram_topic.dart';
@@ -47,6 +50,7 @@ import 'package:all_is_here/ui/youtube.dart';
 import 'package:all_is_here/ui/zelda.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 class Menu extends StatefulWidget {
   Menu({Key? key}) : super(key: key);
@@ -57,53 +61,7 @@ class Menu extends StatefulWidget {
 
 class _MenuState extends State<Menu> {
   ScrollController scrollController = ScrollController();
-  List listFeature = [
-    "Eye Animation",
-    "Choose Seat",
-    "Snake",
-    "Pokemon",
-    "Piano",
-    "Zelda",
-    "HarvestMoon Walk",
-    "Animation Walk",
-    "List Checked",
-    "Hide Post",
-    "IG Message",
-    "Pancake Sort",
-    "Whatsapp",
-    "Gojek Slide Panel",
-    "Tokopedia",
-    "Youtube",
-    "Custom Navbar",
-    "Select Varian Tokopedia",
-    "Tiktok Like",
-    "Facebook",
-    "Dynamic Floating Tokopedia",
-    "Instagram Topic",
-    "Love Alarm",
-    "Navbar Gojek",
-    "IG Flip PP",
-    "Thanks 150",
-    "Slide Animation",
-    "Welcome December",
-    "Color Blind",
-    "Google Page",
-    "Game Tap Screen",
-    "Guess Person",
-    "Snow",
-    "IG Note",
-    "Firework",
-    "IG Share Reels",
-    "Discord Card Move",
-    "Tic-Tac-Toe",
-    "Dark Light Mode",
-    "Tokopedia Top Tabbar",
-    "Hit Calculate",
-    "Chess Clock",
-    "Daily Reward",
-    "Manage Menu Position",
-    "Chat GPT"
-  ];
+  List listFeature = [];
   TextEditingController searchController = TextEditingController();
 
   @override
@@ -111,6 +69,56 @@ class _MenuState extends State<Menu> {
     Timer(Duration(milliseconds: 200), () {
       scrollController.jumpTo(scrollController.position.maxScrollExtent);
     });
+    listFeature = !kIsWeb
+        ? [
+            "Eye Animation",
+            "Choose Seat",
+            "Snake",
+            "Pokemon",
+            "Piano",
+            "Zelda",
+            "HarvestMoon Walk",
+            "Animation Walk",
+            "List Checked",
+            "Hide Post",
+            "IG Message",
+            "Pancake Sort",
+            "Whatsapp",
+            "Gojek Slide Panel",
+            "Tokopedia",
+            "Youtube",
+            "Custom Navbar",
+            "Select Varian Tokopedia",
+            "Tiktok Like",
+            "Facebook",
+            "Dynamic Floating Tokopedia",
+            "Instagram Topic",
+            "Love Alarm",
+            "Navbar Gojek",
+            "IG Flip PP",
+            "Thanks 150",
+            "Slide Animation",
+            "Welcome December",
+            "Color Blind",
+            "Google Page",
+            "Game Tap Screen",
+            "Guess Person",
+            "Snow",
+            "IG Note",
+            "Firework",
+            "IG Share Reels",
+            "Discord Card Move",
+            "Tic-Tac-Toe",
+            "Dark Light Mode",
+            "Tokopedia Top Tabbar",
+            "Hit Calculate",
+            "Chess Clock",
+            "Daily Reward",
+            "Manage Menu Position",
+            "Chat GPT",
+            "Matrix",
+          ]
+        : ["Say Love U"];
     super.initState();
   }
 
@@ -197,146 +205,159 @@ class _MenuState extends State<Menu> {
 
   movePage(param) {
     Widget? className;
-    switch (param) {
-      case 0:
-        className = EyeAnimation();
-        break;
-      case 1:
-        className = ChooseSeat();
-        break;
-      case 2:
-        className = Snake();
-        break;
-      case 3:
-        className = Pokemon();
-        break;
-      case 4:
-        className = Piano();
-        break;
-      case 5:
-        className = ZeldaPage();
-        break;
-      case 6:
-        className = HarvestMoon();
-        break;
-      case 7:
-        className = AnimationWalk();
-        break;
-      case 8:
-        className = ListChecked();
-        break;
-      case 9:
-        className = HidePost();
-        break;
-      case 10:
-        className = IGMessage();
-        break;
-      case 11:
-        className = PancakeSort();
-        break;
-      case 12:
-        className = Whatsapp();
-        break;
-      case 13:
-        className = Gojek();
-        break;
-      case 14:
-        className = Tokopedia();
-        break;
-      case 15:
-        className = Youtube();
-        break;
-      case 16:
-        className = CustomNavbar();
-        break;
-      case 17:
-        className = SelectedVariant();
-        break;
-      case 18:
-        className = TiktokLike();
-        break;
-      case 19:
-        className = Facebook();
-        break;
-      case 20:
-        className = DynamicFloating();
-        break;
-      case 21:
-        className = InstagramTopic();
-        break;
-      case 22:
-        className = LoveAlarm();
-        break;
-      case 23:
-        className = NavbarGojek();
-        break;
-      case 24:
-        className = IGFlip();
-        break;
-      case 25:
-        className = Thanks150();
-        break;
-      case 26:
-        className = SlideAnimation();
-        break;
-      case 27:
-        className = WelcomeDecember();
-        break;
-      case 28:
-        className = ColorBlindTest();
-        break;
-      case 29:
-        className = GooglePage();
-        break;
-      case 30:
-        className = GameTapScreen();
-        break;
-      case 31:
-        className = GuessPerson();
-        break;
-      case 32:
-        className = Snow();
-        break;
-      case 33:
-        className = IGNote();
-        break;
-      case 34:
-        className = Firework();
-        break;
-      case 35:
-        className = IGModalShareReels();
-        break;
-      case 36:
-        className = DiscordCard();
-        break;
-      case 37:
-        className = TicTacToe();
-        break;
-      case 38:
-        className = DarkLightMode();
-        break;
-      case 39:
-        className = TokopediaTopTabbar();
-        break;
-      case 40:
-        className = HitCalculate();
-        break;
-      case 41:
-        className = ChessClock();
-        break;
-      case 42:
-        className = DailyReward();
-        break;
-      case 43:
-        className = ManageMenuPosition();
-        break;
-      case 44:
-        className = ChatGPT();
-        break;
-      default:
-        // do something else
-        break;
+    if (kIsWeb) {
+      switch (param) {
+        case 0:
+          className = SayLoveU();
+          break;
+        default:
+      }
+    } else {
+      switch (param) {
+        case 0:
+          className = EyeAnimation();
+          break;
+        case 1:
+          className = ChooseSeat();
+          break;
+        case 2:
+          className = Snake();
+          break;
+        case 3:
+          className = Pokemon();
+          break;
+        case 4:
+          className = Piano();
+          break;
+        case 5:
+          className = ZeldaPage();
+          break;
+        case 6:
+          className = HarvestMoon();
+          break;
+        case 7:
+          className = AnimationWalk();
+          break;
+        case 8:
+          className = ListChecked();
+          break;
+        case 9:
+          className = HidePost();
+          break;
+        case 10:
+          className = IGMessage();
+          break;
+        case 11:
+          className = PancakeSort();
+          break;
+        case 12:
+          className = Whatsapp();
+          break;
+        case 13:
+          className = Gojek();
+          break;
+        case 14:
+          className = Tokopedia();
+          break;
+        case 15:
+          className = Youtube();
+          break;
+        case 16:
+          className = CustomNavbar();
+          break;
+        case 17:
+          className = SelectedVariant();
+          break;
+        case 18:
+          className = TiktokLike();
+          break;
+        case 19:
+          className = Facebook();
+          break;
+        case 20:
+          className = DynamicFloating();
+          break;
+        case 21:
+          className = InstagramTopic();
+          break;
+        case 22:
+          className = LoveAlarm();
+          break;
+        case 23:
+          className = NavbarGojek();
+          break;
+        case 24:
+          className = IGFlip();
+          break;
+        case 25:
+          className = Thanks150();
+          break;
+        case 26:
+          className = SlideAnimation();
+          break;
+        case 27:
+          className = WelcomeDecember();
+          break;
+        case 28:
+          className = ColorBlindTest();
+          break;
+        case 29:
+          className = GooglePage();
+          break;
+        case 30:
+          className = GameTapScreen();
+          break;
+        case 31:
+          className = GuessPerson();
+          break;
+        case 32:
+          className = Snow();
+          break;
+        case 33:
+          className = IGNote();
+          break;
+        case 34:
+          className = Firework();
+          break;
+        case 35:
+          className = IGModalShareReels();
+          break;
+        case 36:
+          className = DiscordCard();
+          break;
+        case 37:
+          className = TicTacToe();
+          break;
+        case 38:
+          className = DarkLightMode();
+          break;
+        case 39:
+          className = TokopediaTopTabbar();
+          break;
+        case 40:
+          className = HitCalculate();
+          break;
+        case 41:
+          className = ChessClock();
+          break;
+        case 42:
+          className = DailyReward();
+          break;
+        case 43:
+          className = ManageMenuPosition();
+          break;
+        case 44:
+          className = ChatGPT();
+          break;
+        case 45:
+          className = Matrix();
+          break;
+        default:
+          // do something else
+          break;
+      }
     }
+
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => className!),
