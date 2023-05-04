@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:all_is_here/matrix.dart';
+import 'package:all_is_here/ui/matrix.dart';
 import 'package:all_is_here/ui/IG/ig_message.dart';
 import 'package:all_is_here/ui/IG_modal_share_reels.dart';
 import 'package:all_is_here/ui/IG_note.dart';
