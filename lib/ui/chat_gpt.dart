@@ -207,7 +207,7 @@ class ChatGPTModel {
 class Choices {
   String? text;
   int? index;
-  Null? logprobs;
+  String? logprobs;
   String? finishReason;
 
   Choices({this.text, this.index, this.logprobs, this.finishReason});

@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:all_is_here/ui/gambling.dart';
 import 'package:all_is_here/ui/matrix.dart';
 import 'package:all_is_here/ui/IG/ig_message.dart';
 import 'package:all_is_here/ui/IG_modal_share_reels.dart';
@@ -10,7 +11,6 @@ import 'package:all_is_here/ui/chess_clock.dart';
 import 'package:all_is_here/ui/chooseseat.dart';
 import 'package:all_is_here/ui/color_blind_test.dart';
 import 'package:all_is_here/ui/custom_navbar.dart';
-import 'package:all_is_here/ui/custom_table_match.dart';
 import 'package:all_is_here/ui/daily_reward.dart';
 import 'package:all_is_here/ui/dark_light_mode.dart';
 import 'package:all_is_here/ui/discord_card.dart';
@@ -49,7 +49,6 @@ import 'package:all_is_here/ui/whatsapp.dart';
 import 'package:all_is_here/ui/youtube.dart';
 import 'package:all_is_here/ui/zelda.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
 class Menu extends StatefulWidget {
@@ -117,6 +116,7 @@ class _MenuState extends State<Menu> {
             "Manage Menu Position",
             "Chat GPT",
             "Matrix",
+            "Gambling",
           ]
         : ["Say Love U"];
     super.initState();
@@ -351,6 +351,9 @@ class _MenuState extends State<Menu> {
           break;
         case 45:
           className = Matrix();
+          break;
+        case 46:
+          className = SlotGameApp();
           break;
         default:
           // do something else

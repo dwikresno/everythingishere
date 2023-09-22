@@ -40,17 +40,17 @@ dependencies:
   just_audio: ^0.9.27
   flutter_joystick: ^0.0.2
   unicons: ^2.1.0
-  intl: ^0.17.0
+  intl: ^0.18.1
   sliding_up_panel: ^2.0.0+1
   carousel_slider: ^4.1.1
   flutter_emoji: ^2.4.0
   animated_text_kit: ^4.2.2
-  google_fonts: ^3.0.1
-  flip_card: ^0.6.0
+  google_fonts: ^4.0.4
+  flip_card: ^0.7.0
   image_picker: ^0.8.6
   video_player: ^2.4.10
-  extended_image: ^6.3.4
-  flutter_svg: ^1.1.6
+  extended_image: ^8.1.1
+  flutter_svg: ^2.0.6
   flutter_draggable_gridview: ^0.0.7
 
 dev_dependencies:
