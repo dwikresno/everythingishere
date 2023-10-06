@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:all_is_here/ui/gambling.dart';
+import 'package:all_is_here/ui/math_game.dart';
 import 'package:all_is_here/ui/matrix.dart';
 import 'package:all_is_here/ui/IG/ig_message.dart';
 import 'package:all_is_here/ui/IG_modal_share_reels.dart';
@@ -26,6 +27,7 @@ import 'package:all_is_here/ui/harvestmoon.dart';
 import 'package:all_is_here/ui/hide_post.dart';
 import 'package:all_is_here/ui/hit_calculate.dart';
 import 'package:all_is_here/ui/manage_menu_position.dart';
+import 'package:all_is_here/ui/pinjol.dart';
 import 'package:all_is_here/ui/say_love_u.dart';
 import 'package:all_is_here/ui/slide_animation.dart';
 import 'package:all_is_here/ui/ig_flip_pp.dart';
@@ -117,6 +119,8 @@ class _MenuState extends State<Menu> {
             "Chat GPT",
             "Matrix",
             "Gambling",
+            "Meme Pinjol",
+            "Math Game",
           ]
         : ["Say Love U"];
     super.initState();
@@ -354,6 +358,12 @@ class _MenuState extends State<Menu> {
           break;
         case 46:
           className = SlotGameApp();
+          break;
+        case 47:
+          className = Pinjol();
+          break;
+        case 48:
+          className = MathGame();
           break;
         default:
           // do something else
